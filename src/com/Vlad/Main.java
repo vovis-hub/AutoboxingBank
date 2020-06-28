@@ -11,7 +11,8 @@ public class Main {
         System.out.println("Welcome to the program");
         printMenu();
         while (optionInput()) {
-
+            printMenu();
+            optionInput();
         }
 
     }
@@ -42,7 +43,7 @@ public class Main {
             case 3: {
                 System.out.println("Enter branch number");
                 int x = bank.findBranch(scanner.nextInt());
-                bank.getBranch(x).printCustomers();
+                bank.getBranch(x).printCustomersList();
                 return true;
             }
             case 4: {
@@ -54,11 +55,30 @@ public class Main {
             case 5: {
                 System.out.println("Enter branch number");
                 int x = bank.findBranch(scanner.nextInt());
-                bank.getBranch(x).findByName();
-                bank.getBranch(x).
+                int i = bank.getBranch(x).findByName();
+                bank.getBranch(x).printCustomer(i);
+                return true;
             }
-        }
+            case 6: {
+                System.out.println("Enter branch number");
+                int x = bank.findBranch(scanner.nextInt());
+                int i = bank.getBranch(x).findByName();
+                bank.getBranch(x).addTransaction(i);
+                return true;
+            }
+            case 7: {
+                System.out.println("Enter branch number");
+                int x = bank.findBranch(scanner.nextInt());
+                int i = bank.getBranch(x).findByName();
+                bank.getBranch(x).getCustomer(i).printTransactions();
+                return true;
+            }
+            default: {
+                System.out.println("Invalid input");
+                return true;
+            }
 
+        }
 
     }
 

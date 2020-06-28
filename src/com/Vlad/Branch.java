@@ -18,6 +18,10 @@ public class Branch {
         return branchNumber;
     }
 
+    public Customer getCustomer(int i) {
+        return branchCustomers.get(i);
+    }
+
     public void setNewBranchNumber(int branchNumber) {
         this.branchNumber = branchNumber;
     }
@@ -49,8 +53,8 @@ public class Branch {
         return -1;
     }
 
-    public boolean checkCustomer(Customer customer) {
-        return (findCustomer(customer) >= 0);
+    public boolean checkCustomer(int i) {
+        return (findByName(i) >= 0);
     }
 
     public void addCustomer() {
@@ -64,8 +68,21 @@ public class Branch {
         }
     }
 
-    public void printCustomers() {
-        System.out.println(branchCustomers.toString());
+    public void printCustomer(int i) {
+        System.out.println(branchCustomers.get(i).getName());
+    }
+
+    public void printCustomersList() {
+        for (int i = 0; i < branchCustomers.size(); i++) {
+            branchCustomers.get(i).printTransactions();
+        }
+    }
+
+    public void addTransaction(int i) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter transaction amount");
+        double trs = scanner.nextDouble();
+        branchCustomers.get(i).addTransaction(trs);
     }
 
 
