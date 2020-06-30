@@ -1,6 +1,5 @@
 package com.Vlad;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -18,8 +17,8 @@ public class Main {
     }
 
     public static void printMenu() {
-        System.out.println("Bank options menu:");
-        System.out.println("press:\n0 - Exit\n1 - List branches\n 2 - Add branch\n" +
+        System.out.println("Bank options menu,");
+        System.out.println("press:\n0 - Exit\n1 - List branches\n2 - Add branch\n" +
                 "3 - List branch customers\n" +
                 "4 - Add new customer\n5 - Find a customer\n6 - Add transaction\n7 - List customer transactions");
     }

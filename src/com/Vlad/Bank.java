@@ -29,10 +29,9 @@ public class Bank {
             Branch branchCheck = new Branch(i);
             if (branchCheck.getBranchNumber() == x) {
                 return i;
-            } else {
-                return -1;
             }
         }
+        return -1;
     }
 
     public boolean checkBranch(int i) {
@@ -40,8 +39,8 @@ public class Bank {
     }
 
     public void printBranches() {
-        for (int i = 0; i < branches.size(); i++) {
-            System.out.println("Branch #"+ branches.get(i).getBranchNumber());
+        for (Branch branch : branches) {
+            System.out.println("Branch #" + branch.getBranchNumber());
         }
     }
 
