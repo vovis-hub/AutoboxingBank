@@ -30,16 +30,6 @@ public class Branch {
         return branchCustomers;
     }
 
-    public int findCustomer(Customer customer) {
-        for (int i = 0; i < branchCustomers.size(); i++) {
-            Customer custCheck = branchCustomers.get(i);
-            if (custCheck.getName().equals(customer.getName())) {
-                return i;
-            }
-        }
-        return -1;
-    }
-
     public int findByName() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter customer name");
@@ -53,13 +43,23 @@ public class Branch {
         return -1;
     }
 
-    public boolean checkCustomer(int i) {
-        return (findByName(i) >= 0);
+    public int findByName(String name) {
+        for (int i = 0; i < branchCustomers.size(); i++) {
+            Customer custCheck = branchCustomers.get(i);
+            if (custCheck.getName().equals(name)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public boolean checkCustomer(String name) {
+        return (findByName(name) >= 0);
     }
 
     public void addCustomer() {
-        if (checkCustomer()) {
-            Customer newCustomer = new Customer();
+        Customer newCustomer = new Customer();
+        if (checkCustomer(newCustomer.getName())) {
             this.branchCustomers.add(newCustomer);
             newCustomer.addTransaction(0.00);
             System.out.println("New customer " + newCustomer.getName());
@@ -73,8 +73,8 @@ public class Branch {
     }
 
     public void printCustomersList() {
-        for (int i = 0; i < branchCustomers.size(); i++) {
-            branchCustomers.get(i).printTransactions();
+        for (Customer branchCustomer : branchCustomers) {
+            branchCustomer.printTransactions();
         }
     }
 
