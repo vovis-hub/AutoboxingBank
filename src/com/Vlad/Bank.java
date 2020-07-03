@@ -15,7 +15,7 @@ public class Bank {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter new Branch number:");
         int newBranchNumber = scanner.nextInt();
-        if (checkBranch(newBranchNumber)) {
+        if (!checkBranch(newBranchNumber)) {
             Branch branch = new Branch(newBranchNumber);
             this.branches.add(branch);
             System.out.println("New Branch #" + newBranchNumber + " added");
@@ -25,7 +25,7 @@ public class Bank {
     }
 
     public int findBranch(int x) {
-        for (int i = 0; i < branches.size(); i++) {
+        for (int i = 0; i <= branches.size(); i++) {
             Branch branchCheck = new Branch(i);
             if (branchCheck.getBranchNumber() == x) {
                 return i;

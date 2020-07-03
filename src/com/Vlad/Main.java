@@ -10,6 +10,7 @@ public class Main {
         System.out.println("Welcome to the program");
         printMenu();
         while (optionInput()) {
+            System.out.println();
             printMenu();
             optionInput();
         }
